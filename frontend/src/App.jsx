@@ -9,14 +9,14 @@ function App() {
     const formdata = new FormData();
     formdata.append("file", file);
     axios
-      .post(`${window.location.origin}/upload`, formdata)
+      .post("https://image-upload-wcls.vercel.app/upload", formdata)
       .then((res) => console.log(res))
       .catch((e) => console.log(e));
   };
 
   useEffect(() => {
     axios
-      .get(`${window.location.origin}/getImage`)
+      .get("https://image-upload-wcls.vercel.app/getImage")
       .then((res) => setImage(res.data[0].image))
       .catch((e) => console.log(e));
   }, []);
@@ -26,7 +26,7 @@ function App() {
       <input type="file" onChange={(e) => setFile(e.target.files[0])} />
       <button onClick={handleUpload}>Upload</button>
       <br />
-      <img src={`${window.location.origin}/Images/` + image} alt="" />
+      <img src={"https://image-upload-wcls.vercel.app/Images/" + image} alt="" />
     </div>
   );
 }
