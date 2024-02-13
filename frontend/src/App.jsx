@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     axios
       .get("https://image-upload-r8fk.vercel.app/getImage")
-      .then((res) => setImage(res.data[1].image))
+      .then((res) => setImage(res.data[0].image))
       .catch((e) => console.log(e));
   }, []);
 
